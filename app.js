@@ -6,8 +6,8 @@ var logger = require('morgan');
 
 //router variable
 var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
-var catalogRouter = require('./routes/catalog');
+var usersRouter = require('./routes/users');
+//var catalogRouter = require('./routes/catalog');
 
 var app = express();
 
@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Routing Define (S)
 app.use('/', indexRouter);
-app.use('/catalog', catalogRouter);
+//app.use('/catalog', catalogRouter);
 //Routing Define (E)
 
 
