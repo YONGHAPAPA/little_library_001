@@ -32,3 +32,36 @@ exports.index = function(req, res){
         res.render('index', {title:'little library', error:err, data:results})
     });
 }
+
+exports.book_all_list = function(req, res, next){
+    //res.send("Book List");
+    Book.find({}, 'title author').populate('author').exec(function(err, results){
+        if(err) return next(err);
+        res.render('book_list', {title:'All Book List', data:results});
+    });
+}
+
+
+exports.book_detail_info = function(req, res, next){
+    async.parallel({
+        book : function(cb){
+            Book.findById(req.params.id)
+            .populate('author')
+            .populate('genre')
+            .exec(cb);
+        }, 
+        book_instance : function(cb){
+            BookInstance.find({'book':req.params.id}).exec(cb);
+        }
+    }, function(err, results){
+        if(err) return next(err);
+
+        if(results.book == null){
+            var err = new Error('Book not found');
+            err.status = 404;
+            return next(err);
+        }
+
+        res.render('book_detail_info', {title:'Detail Info', book:results.book, book_instance:results.book_instance});
+    });
+}

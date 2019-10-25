@@ -10,6 +10,11 @@ var schema = new Schema({
 });
 
 
+schema.virtual('name').get(function(){
+    return this.first_name + " " + this.familly_name;
+});
+
+
 schema.virtual('birtahDate').get(function(){
     return this.date_of_birth ? moment(this.date_of_birth).format('MMMM Do, YYYY') : '';
 });
