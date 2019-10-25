@@ -24,7 +24,7 @@ schema.virtual('deathDate').get(function(){
 });
 
 schema.virtual('lifespan').get(function(){
-    return (this.date_of_death.getYear() - this.date_of_death.getYear()).toString();
+    return (this.date_of_death.getYear() - this.date_of_birth.getYear()).toString();
 });
 
 schema.virtual('url').get(function(){

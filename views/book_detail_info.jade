@@ -3,13 +3,24 @@ extends layout
 block content
  h1= title
 
- p #[strong Title : ] #{book.title}
- p #[strong Author : ] #{book.author.name}
- p #[strong Summary : ] #{book.summary}
- p #[strong ISBN : ] #{book.isbn}
- p #[strong Genre : ] #{book.genre.length}
+ p #[strong Title : ] #{data.book.title}
+ p #[strong Author : ] #{data.book.author.name}
+ p #[strong Summary : ] #{data.book.summary}
+ p #[strong ISBN : ] #{data.book.isbn}
+ p #[strong Genre : ] 
+  each val, index in data.book.genre
+    a(href=val.url) #{val.name}
+       if index < data.book.genre.length - 1 
+        |,
+
+ div(style='margin-left:20px;margin-top:20px')
+  h4 Copies
+   each val in data.book_instance
+    hr
+    p #[strong Status : ] #{val.status}
+    p #[strong Imprint : ] #{val.imprint}
+    p #[strong Due Back : ] #{val.due_back_formmated}
        
-       
-       
-     
+   else
+    p There is no copies.  
     

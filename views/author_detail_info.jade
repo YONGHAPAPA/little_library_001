@@ -1,0 +1,18 @@
+extends layout
+block content
+ h1=title
+
+ h4 Author : #{data.author.family_name}, #{data.author.first_name}
+ p #{data.author.birthDate} #{data.author.deathDate}
+
+ div(style='margin-left:20px;margin-top:20px')
+  h4 Author's Books
+
+    dl  
+      each book in data.books
+        dt
+            a(href=book.url) #{book.title}
+        dd #{book.summary}
+        br
+      else 
+        p There is no book.

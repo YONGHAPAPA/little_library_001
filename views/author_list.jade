@@ -1,0 +1,13 @@
+extends layout
+
+block content
+ h1= title
+
+ ul
+  each author in data.authors
+   li
+    a(href=author.url) #{author.name}
+     | #{author.date_of_birth}
+  else 
+   li 
+    There is no Author.

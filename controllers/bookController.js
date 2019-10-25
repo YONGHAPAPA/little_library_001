@@ -62,6 +62,6 @@ exports.book_detail_info = function(req, res, next){
             return next(err);
         }
 
-        res.render('book_detail_info', {title:'Detail Info', book:results.book, book_instance:results.book_instance});
+        res.render('book_detail_info', {title:'Detail Info', data:results});
     });
 }
