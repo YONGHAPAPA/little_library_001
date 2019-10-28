@@ -3,6 +3,13 @@ var Book = require('../models/book');
 var async = require('async');
 
 
+exports.genre_all_list = function(req, res, next){
+    Genre.find({}, 'name').exec(function(err, results){
+        if(err) return next(err);
+        res.render('genre_list', {title:'Genre All List', data:results});
+    });
+}
+
 exports.genre_detail = function(req, res, next){
     
     async.parallel({
@@ -24,5 +31,7 @@ exports.genre_detail = function(req, res, next){
         res.render('genre_detail', {title:'Genre Detail Info', data:results})
     });
 }
+
+
 
 
