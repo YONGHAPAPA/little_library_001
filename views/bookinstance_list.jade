@@ -1,0 +1,14 @@
+extends layout
+block content
+ h1=title
+ 
+ ul 
+   each bookinstance in data
+    li 
+     a(href=bookinstance.url) #{bookinstance.book.title} : #{bookinstance.imprint}
+
+     if bookinstance.status != 'Avaiable'
+      span Due : #{bookinstance.due_back}
+
+   else 
+    li There is no Book Instance.

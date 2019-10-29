@@ -4,14 +4,14 @@ var moment = require("moment");
 
 var schema = new Schema({
     first_name : {type:String, required:true, max:100}, 
-    familly_name : {type:String, required:true, max:100}, 
+    family_name : {type:String, required:true, max:100}, 
     date_of_birth : {type:Date}, 
     date_of_death : {type:Date}
 });
 
 
 schema.virtual('name').get(function(){
-    return this.first_name + " " + this.familly_name;
+    return this.first_name + " " + this.family_name;
 });
 
 

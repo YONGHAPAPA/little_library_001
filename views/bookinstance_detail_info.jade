@@ -1,0 +1,19 @@
+extends layout
+block content 
+ h1=title
+ 
+ span Book Instance ID : #{data._id}
+ hr
+ p #[strong Book Title : ] 
+  a(href=data.book.url) #{data.book.title}
+
+ p #[strong Imprint :] #{data.imprint}
+
+ p #[strong status : ]
+  if (data.status == 'Available')
+   span.text-success #{data.status}
+  else if (data.status == 'Maintenance')
+   span.text-danger #{data.status}
+  else 
+   span.text-warning #{data.status}
+  
