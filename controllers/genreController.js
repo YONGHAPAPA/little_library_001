@@ -1,8 +1,8 @@
 var Genre = require('../models/genre');
 var Book = require('../models/book');
 var async = require('async');
-var {body, validationResult} = require('express-validator/check');
-var {sanitizeBody} = require('express-validator/filter');
+var {body, validationResult} = require('express-validator');
+var {sanitizeBody} = require('express-validator');
 
 
 exports.genre_all_list = function(req, res, next){

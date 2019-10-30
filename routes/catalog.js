@@ -33,6 +33,8 @@ router.get('/author/:id', author_controller.author_detail);
 
 //Book Instance
 router.get('/bookInstance_all_list', bookInstance_controller.bookInstance_all_list);
+router.get('/bookinstance/create', bookInstance_controller.bookInstance_create_get);
+router.post('/bookinstance/create', bookInstance_controller.bookInstance_create_post);
 router.get('/bookInstance/:id', bookInstance_controller.bookInstance_detail_info);
 
 

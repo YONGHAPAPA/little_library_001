@@ -1,8 +1,8 @@
 var Author = require('../models/author');
 var Book = require('../models/book');
 var async = require('async');
-const {body, validationResult} = require('express-validator/check');
-const {sanitizeBody} = require('express-validator/filter');
+const {body, validationResult} = require('express-validator');
+const {sanitizeBody} = require('express-validator');
 
 exports.author_all_list = function(req, res, next){
     async.parallel({
